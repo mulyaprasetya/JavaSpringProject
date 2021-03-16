@@ -11,5 +11,9 @@ public class DefaultController {
 		return "homePage";
 	}
 	
+	@RequestMapping("/login")
+	public String login() {
+		return "loginPage";
+	}
 	
 }
