@@ -16,4 +16,9 @@ public class DefaultController {
 		return "loginPage";
 	}
 	
+	@RequestMapping("/profile")
+	public String profile() {
+		return "profile/profile";
+	}
+	
 }

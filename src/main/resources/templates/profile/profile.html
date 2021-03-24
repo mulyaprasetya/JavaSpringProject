@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+	<link rel="stylesheet" href="../bootstrap4/css/bootstrap.css">
+	<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet"/>
+	
+    <title>Profile</title>
+  </head>
+
+  <body>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-4">
+          <div
+            class="card shadow border-0 pt-1"
+            style="background-color: #e3f2fd"
+          >
+            <div class="bg-white container pb-3">
+              <div class="d-flex flex-column text-center mb-3">
+                <span
+                  class="text-right mr-2 p-0"
+                  style="font-size: 1.5em; color: grey"
+                >
+                <a href="modalFoto" data-toggle="modal" data-target="#modalFoto" class="edit-avatar"><i id="editFotoBtn" class="fa fa-pencil"></i></a>
+					<div class="modal fade" id="modalFoto" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered" role="document">
+							<div class="modal-content">
+								<div class="modal-body pd-5">
+									<div id="bodyEditFoto" class="modal-body">
+									
+									</div>
+								</div>
+									<div class="modal-footer">
+										<input id="saveFoto" type="submit" value="Update" class="btn btn-primary">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+							</div>
+						</div>
+					</div>
+                </span>
+                <div class="text-center">
+                  <img id="foto"
+                    class="rounded-circle border border-primary p-1" onload="fixImage(this)"
+                  />
+                </div>
+                <h5 id="nama" class="text-info m-0"><b></b></h5>
+                <span id="tempat"></span>
+                <span style="font-size: 1em; color: rgba(221, 134, 21, 0.849)">
+                  <i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                  <i class="bx bxs-star"></i>
+                </span>
+              </div>
+              <a
+                class="d-flex flex-row justify-content-between border-top border-bottom p-1"
+                href="#"
+              >
+                <span><b>Janji</b></span>
+                <span><b></b></span>
+              </a>
+              <a class="d-flex p-1 border-bottom" href="#"
+                ><b>Obrolan / Konsultasi</b></a
+              >
+            </div>
+          </div>
+
+          <div class="card mt-5 shadow-sm">
+            <div
+              class="card-header text-primary"
+              style="background-color: #e3f2fd"
+            >
+              <b>Tentang Saya</b>
+            </div>
+            <div class="card-body">
+              
+              <h5 class="card-title text-info">Tindakan Medis</h5>
+              <p class="d-flex flex-column text-secondary">
+                <span id="tindakan"></span>
+              </p>
+              
+              <h5 class="card-title text-info">Riwayat Praktek</h5>
+              <div id="riwayatPraktek" class="d-flex flex-column text-secondary">
+                <span id="riwayat"></span>
+                <p id=detailRiwayat class="d-flex flex-row justify-content-between ml-2">
+                  
+                </p>  
+              </div>
+              
+              <h5 class="card-title text-info">Pendidikan</h5>
+              <div class="d-flex flex-column text-secondary">
+                <span id="pendidikan"></span>
+                <p class="d-flex flex-row justify-content-between ml-2">
+                  <small>Spesialis Anak</small>
+                  <small>2016</small>
+                </p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-8">
+          <div
+            class="card pt-1 border-top-0 shadow-sm"
+            style="height: 50%; background-color: #e3f2fd"
+          >
+            <div class="card-header bg-white">
+              <ul class="nav nav-pills card-header-pills">
+                <li class="nav-item">
+                  <a id="btnmenu1" class="nav-link active" href="/specialization">Spesialisasi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Tindakan</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Aktivitas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Konsultasi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pengaturan</a>
+                </li>
+              </ul>
+            </div>
+            
+            
+            <div id="fragment1" class="card-body bg-white">
+            </div>
+            
+            <!-- Tab Content -->
+            <div class="tab-content bg-white" style="height: 100%">
+              <div id="spesialisasi" class="tab-pane" style="height: 100%">
+                <div class="d-flex flex-column h-100">
+                  <div class="card-body bg-white">
+                    <p class="text-info">
+                      <b>Anda Belum Menambahkan Spesialisasi</b>
+                    </p>
+                  </div>
+                  <div class="card-footer bg-white text-right border-0">
+                    <a href="#">
+                      <span style="font-size: 3em; color: #007bff">
+                        <i class="bx bxs-plus-circle"></i>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--JS SCRIPT-->
+    <script src="../jquery-3.5.1.min.js"></script>
+	<script src="../popper.min.js"></script>
+	<script src="../profile/profile.js"></script>
+	<script src="../specialization/specialization.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+	<script src="../bootstrap4/js/bootstrap.min.js"></script> 
+  </body>
+</html>
